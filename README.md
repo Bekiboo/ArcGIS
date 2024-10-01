@@ -1,38 +1,31 @@
-# create-svelte
+# Overview
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
 
-## Creating a project
+{Provide a description the map software that you wrote. Describe how to use your software. Describe the source of the data that you used.}
 
-If you're seeing this, you've probably already done this step. Congrats!
+{Describe your purpose for writing this software.}
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code.}
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+[Software Demo Video](http://youtube.link.goes.here)
 
-## Developing
+# Development Environment
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+{Describe the tools that you used to develop the software}
 
-```bash
-npm run dev
+{Describe the programming language that you used and any libraries.}
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+# Useful Websites
 
-## Building
+{Make a list of websites that you found helpful in this project}
 
-To create a production version of your app:
+- [Using Svelte with the ArcGIS API for JavaScript](https://www.esri.com/arcgis-blog/products/js-api-arcgis/developers/using-svelte-with-the-arcgis-api-for-javascript/)
 
-```bash
-npm run build
-```
+# Future Work
 
-You can preview the production build with `npm run preview`.
+{Make a list of things that you need to fix, improve, and add in the future.}
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Item 1
+- Item 2
+- Item 3
