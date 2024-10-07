@@ -1,31 +1,19 @@
 # Overview
 
-{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
-
-{Provide a description the map software that you wrote. Describe how to use your software. Describe the source of the data that you used.}
-
-{Describe your purpose for writing this software.}
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code.}
+I developped this project to test the integration of the ArcGIS API for JavaScript with Svelte. The project is a simple map application that displays a map of Antananarivo and allows the user to search for Point Of Interests and filter them by types. The project uses the ArcGIS API for JavaScript to display the map and search for locations. The project uses Svelte to create the user interface and handle user input.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used and any libraries.}
+I used Visual Studio Code to develop this project. I used the ArcGIS API for JavaScript to display the map and search for locations. I used Svelte to create the user interface and handle user input.
 
 # Useful Websites
-
-{Make a list of websites that you found helpful in this project}
 
 - [Using Svelte with the ArcGIS API for JavaScript](https://www.esri.com/arcgis-blog/products/js-api-arcgis/developers/using-svelte-with-the-arcgis-api-for-javascript/)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
+- Add more features to the map application.
+- Add more filters to the search results.
+- Add more search options.
