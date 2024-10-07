@@ -12,7 +12,7 @@
 
 	let view: MapView
 
-	const Map = (domNode: any, filters: { type?: string } = {}) => {
+	const Map = (domNode: any) => {
 		view = new MapView({
 			container: domNode,
 			map: {
@@ -22,21 +22,8 @@
 			center: [47.528, -18.912] // longitude, latitude
 		})
 
-		view.watch('center', (center) => {
-			centerText = `Longitude: ${center.longitude.toFixed(3)}, Latitude: ${center.latitude.toFixed(3)}`
-		})
-
 		view.when(() => {
 			console.log('Map loaded')
-		})
-
-		const markerSymbol = new SimpleMarkerSymbol({
-			color: [226, 119, 40],
-			outline: {
-				// autocasts as new SimpleLineSymbol()
-				color: [255, 255, 255],
-				width: 2
-			}
 		})
 
 		filterMap('all')
@@ -48,12 +35,11 @@
 		}
 	}
 
-	const createMarkerSymbol = (color: number[]) => {
+	const createMarkerSymbol = (color: number[] | string) => {
 		return new SimpleMarkerSymbol({
 			color: color,
 			outline: {
-				// autocasts as new SimpleLineSymbol()
-				color: [255, 255, 255],
+				color: '#fff',
 				width: 2
 			}
 		})
@@ -110,24 +96,48 @@
 </script>
 
 <main>
+	<h1 class="bg-red-500">Antananarivo's Best Spots</h1>
 	<div>Filters</div>
 	<div>
-		<button on:click={() => filterMap('all')}>All</button>
-		<button on:click={() => filterMap('restaurants')}>Restaurants</button>
-		<button on:click={() => filterMap('hotels')}>Hotels</button>
-		<button on:click={() => filterMap('shops')}>Shops</button>
+		<input
+			type="radio"
+			id="all"
+			name="filter"
+			value="all"
+			on:change={() => filterMap('all')}
+			checked
+		/>
+		<label for="all">All</label>
+		<input
+			type="radio"
+			id="restaurants"
+			name="filter"
+			value="restaurants"
+			on:change={() => filterMap('restaurants')}
+		/>
+		<label for="restaurants">Restaurants</label>
+		<input
+			type="radio"
+			id="hotels"
+			name="filter"
+			value="hotels"
+			on:change={() => filterMap('hotels')}
+		/>
+		<label for="hotels">Hotels</label>
+		<input
+			type="radio"
+			id="shops"
+			name="filter"
+			value="shops"
+			on:change={() => filterMap('shops')}
+		/>
+		<label for="shops">Shops</label>
 	</div>
 
-	{#if centerText}
-		<p>{centerText}</p>
-	{/if}
 	<div class="view" use:Map></div>
 </main>
 
 <style>
-	main {
-		margin: 2rem;
-	}
 	.view {
 		height: 800px;
 		width: 100%;
