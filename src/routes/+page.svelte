@@ -17,7 +17,7 @@
 		view = new MapView({
 			container: domNode,
 			map: {
-				basemap: 'streets-vector' // hybrid, satellite, topo, gray, dark-gray, streets, streets-navigation-vector, streets-night-vector, streets-relief-vector, streets-terrain-vector, topo-vector, streets-satellite, streets-satellite-vector, streets-navigation-vector, streets-night-vector, streets-relief-vector, streets-terrain-vector
+				basemap: 'streets' // hybrid, satellite, topo, gray, dark-gray, streets, streets-navigation-vector, streets-night-vector, streets-relief-vector, streets-terrain-vector, topo-vector, streets-satellite, streets-satellite-vector, streets-navigation-vector, streets-night-vector, streets-relief-vector, streets-terrain-vector
 			},
 			zoom: 13,
 			center: [47.528, -18.912] // longitude, latitude
@@ -77,6 +77,7 @@
 			attributes: point,
 			popupTemplate
 		})
+		
 		view.graphics.add(pointGraphic)
 	}
 
@@ -122,65 +123,62 @@
 </script>
 
 <main class="h-screen relative overflow-hidden">
-	<header class="absolute flex flex-col gap-4 z-10 right-0 bg-slate-900 p-2 rounded-bl-lg">
-		<h1 class="font-bold text-2xl text-white">Antananarivo's Best Spots</h1>
-		<div>
-			<input
-				class="hidden"
-				type="radio"
-				id="all"
-				name="filter"
-				value="all"
-				on:change={() => filterMap('all')}
-				checked
-			/>
-			<label for="all" class="btn btn-primary {currentFilter === 'all' ? '' : 'btn-outline'}"
-				>All</label
-			>
-			<input
-				class="hidden"
-				type="radio"
-				id="restaurants"
-				name="filter"
-				value="restaurants"
-				on:change={() => filterMap('restaurants')}
-			/>
-			<label
-				for="restaurants"
-				class="btn btn-primary {currentFilter === 'restaurants' ? '' : 'btn-outline'}"
-				>Restaurants</label
-			>
-			<input
-				class="hidden"
-				type="radio"
-				id="hotels"
-				name="filter"
-				value="hotels"
-				on:change={() => filterMap('hotels')}
-			/>
-			<label for="hotels" class="btn btn-primary {currentFilter === 'hotels' ? '' : 'btn-outline'}"
-				>Hotels</label
-			>
-			<input
-				class="hidden"
-				type="radio"
-				id="shops"
-				name="filter"
-				value="shops"
-				on:change={() => filterMap('shops')}
-			/>
-			<label for="shops" class="btn btn-primary {currentFilter === 'shops' ? '' : 'btn-outline'}"
-				>Shops</label
-			>
-		</div>
+	<header class="backdrop-blur-md bg-slate-800 bg-opacity-20 absolute z-10 right-0 p-4 rounded-bl-lg shadow-2xl flex flex-col gap-4">
+			<h1 class="font-black text-3xl text-slate-800">Antananarivo's Best Spots</h1>
+
+			<!-- FILTERS -->
+			<div class="flex justify-between">
+				<input
+					class="hidden"
+					type="radio"
+					id="all"
+					name="filter"
+					value="all"
+					on:change={() => filterMap('all')}
+					checked
+				/>
+				<label for="all" class="btn btn-primary {currentFilter === 'all' ? '' : 'btn-outline'}"
+					>All</label
+				>
+				<input
+					class="hidden"
+					type="radio"
+					id="restaurants"
+					name="filter"
+					value="restaurants"
+					on:change={() => filterMap('restaurants')}
+				/>
+				<label
+					for="restaurants"
+					class="btn btn-primary {currentFilter === 'restaurants' ? '' : 'btn-outline'}"
+					>Restaurants</label
+				>
+				<input
+					class="hidden"
+					type="radio"
+					id="hotels"
+					name="filter"
+					value="hotels"
+					on:change={() => filterMap('hotels')}
+				/>
+				<label for="hotels" class="btn btn-primary {currentFilter === 'hotels' ? '' : 'btn-outline'}"
+					>Hotels</label
+				>
+				<input
+					class="hidden"
+					type="radio"
+					id="shops"
+					name="filter"
+					value="shops"
+					on:change={() => filterMap('shops')}
+				/>
+				<label for="shops" class="btn btn-primary {currentFilter === 'shops' ? '' : 'btn-outline'}"
+					>Shops</label
+				>
+			</div>
 	</header>
 
-	<div class="view" use:Map></div>
+	<!-- MAP -->
+	<div class="h-screen w-screen" use:Map></div>
 </main>
 
-<style>
-	.view {
-		height: 100vh;
-		width: 100%;
-	}
-</style>
