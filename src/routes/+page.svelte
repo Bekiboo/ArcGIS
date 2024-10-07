@@ -3,6 +3,7 @@
 	import '@arcgis/core/assets/esri/themes/light/main.css'
 	import Graphic from '@arcgis/core/Graphic'
 	import Point from '@arcgis/core/geometry/Point'
+	import PopupTemplate from '@arcgis/core/PopupTemplate'
 	import SimpleMarkerSymbol from '@arcgis/core/symbols/SimpleMarkerSymbol'
 	import { restaurants } from './restaurants'
 	import { hotels } from './hotels'
@@ -45,15 +46,36 @@
 		})
 	}
 
-	const addMarker = (point: { coordinates: number[] }, color: number[]) => {
+	const addMarker = (point: any, color: number[]) => {
 		const markerSymbol = createMarkerSymbol(color)
+
+		const popupTemplate = new PopupTemplate({
+			title: point.name,
+			content: [
+				{
+					type: 'fields',
+					fieldInfos: [
+						{
+							fieldName: 'description',
+							label: 'Description'
+						},
+						{
+							fieldName: 'rating',
+							label: 'Rating'
+						}
+					]
+				}
+			]
+		})
 
 		const pointGraphic = new Graphic({
 			geometry: new Point({
 				longitude: point.coordinates[0],
 				latitude: point.coordinates[1]
 			}),
-			symbol: markerSymbol
+			symbol: markerSymbol,
+			attributes: point,
+			popupTemplate
 		})
 		view.graphics.add(pointGraphic)
 	}
