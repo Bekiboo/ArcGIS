@@ -58,8 +58,12 @@
 		view.graphics.add(pointGraphic)
 	}
 
+	let currentFilter = 'all'
+
 	const filterMap = (type: string) => {
 		view.graphics.removeAll()
+
+		currentFilter = type
 
 		switch (type) {
 			case 'all':
@@ -95,11 +99,11 @@
 	}
 </script>
 
-<main>
-	<h1 class="bg-red-500">Antananarivo's Best Spots</h1>
-	<div>Filters</div>
+<main class="p-2 flex flex-col gap-4 h-screen overflow-hidden">
+	<h1 class="font-bold text-2xl">Antananarivo's Best Spots</h1>
 	<div>
 		<input
+			class="hidden"
 			type="radio"
 			id="all"
 			name="filter"
@@ -107,31 +111,44 @@
 			on:change={() => filterMap('all')}
 			checked
 		/>
-		<label for="all">All</label>
+		<label for="all" class="btn btn-primary {currentFilter === 'all' ? '' : 'btn-outline'}"
+			>All</label
+		>
 		<input
+			class="hidden"
 			type="radio"
 			id="restaurants"
 			name="filter"
 			value="restaurants"
 			on:change={() => filterMap('restaurants')}
 		/>
-		<label for="restaurants">Restaurants</label>
+		<label
+			for="restaurants"
+			class="btn btn-primary {currentFilter === 'restaurants' ? '' : 'btn-outline'}"
+			>Restaurants</label
+		>
 		<input
+			class="hidden"
 			type="radio"
 			id="hotels"
 			name="filter"
 			value="hotels"
 			on:change={() => filterMap('hotels')}
 		/>
-		<label for="hotels">Hotels</label>
+		<label for="hotels" class="btn btn-primary {currentFilter === 'hotels' ? '' : 'btn-outline'}"
+			>Hotels</label
+		>
 		<input
+			class="hidden"
 			type="radio"
 			id="shops"
 			name="filter"
 			value="shops"
 			on:change={() => filterMap('shops')}
 		/>
-		<label for="shops">Shops</label>
+		<label for="shops" class="btn btn-primary {currentFilter === 'shops' ? '' : 'btn-outline'}"
+			>Shops</label
+		>
 	</div>
 
 	<div class="view" use:Map></div>
