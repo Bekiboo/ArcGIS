@@ -9,8 +9,6 @@
 	import { hotels } from './hotels'
 	import { shops } from './shops'
 
-	let centerText: string
-
 	let view: MapView
 
 	const Map = (domNode: any) => {
@@ -77,7 +75,7 @@
 			attributes: point,
 			popupTemplate
 		})
-		
+
 		view.graphics.add(pointGraphic)
 	}
 
@@ -122,63 +120,64 @@
 	}
 </script>
 
-<main class="h-screen relative overflow-hidden">
-	<header class="backdrop-blur-md bg-slate-800 bg-opacity-20 absolute z-10 right-0 p-4 rounded-bl-lg shadow-2xl flex flex-col gap-4">
-			<h1 class="font-black text-3xl text-slate-800">Antananarivo's Best Spots</h1>
+<main class="relative h-screen overflow-hidden">
+	<header
+		class="absolute right-0 z-10 flex flex-col gap-4 p-4 rounded-bl-lg shadow-2xl backdrop-blur-md bg-slate-800 bg-opacity-20"
+	>
+		<h1 class="text-3xl font-black text-slate-800">Antananarivo's Best Spots</h1>
 
-			<!-- FILTERS -->
-			<div class="flex justify-between">
-				<input
-					class="hidden"
-					type="radio"
-					id="all"
-					name="filter"
-					value="all"
-					on:change={() => filterMap('all')}
-					checked
-				/>
-				<label for="all" class="btn btn-primary {currentFilter === 'all' ? '' : 'btn-outline'}"
-					>All</label
-				>
-				<input
-					class="hidden"
-					type="radio"
-					id="restaurants"
-					name="filter"
-					value="restaurants"
-					on:change={() => filterMap('restaurants')}
-				/>
-				<label
-					for="restaurants"
-					class="btn btn-primary {currentFilter === 'restaurants' ? '' : 'btn-outline'}"
-					>Restaurants</label
-				>
-				<input
-					class="hidden"
-					type="radio"
-					id="hotels"
-					name="filter"
-					value="hotels"
-					on:change={() => filterMap('hotels')}
-				/>
-				<label for="hotels" class="btn btn-primary {currentFilter === 'hotels' ? '' : 'btn-outline'}"
-					>Hotels</label
-				>
-				<input
-					class="hidden"
-					type="radio"
-					id="shops"
-					name="filter"
-					value="shops"
-					on:change={() => filterMap('shops')}
-				/>
-				<label for="shops" class="btn btn-primary {currentFilter === 'shops' ? '' : 'btn-outline'}"
-					>Shops</label
-				>
-			</div>
+		<!-- FILTERS -->
+		<div class="flex justify-between">
+			<input
+				class="hidden"
+				type="radio"
+				id="all"
+				name="filter"
+				value="all"
+				on:change={() => filterMap('all')}
+				checked
+			/>
+			<label for="all" class="btn btn-primary {currentFilter === 'all' ? '' : 'btn-outline'}"
+				>All</label
+			>
+			<input
+				class="hidden"
+				type="radio"
+				id="restaurants"
+				name="filter"
+				value="restaurants"
+				on:change={() => filterMap('restaurants')}
+			/>
+			<label
+				for="restaurants"
+				class="btn btn-primary {currentFilter === 'restaurants' ? '' : 'btn-outline'}"
+				>Restaurants</label
+			>
+			<input
+				class="hidden"
+				type="radio"
+				id="hotels"
+				name="filter"
+				value="hotels"
+				on:change={() => filterMap('hotels')}
+			/>
+			<label for="hotels" class="btn btn-primary {currentFilter === 'hotels' ? '' : 'btn-outline'}"
+				>Hotels</label
+			>
+			<input
+				class="hidden"
+				type="radio"
+				id="shops"
+				name="filter"
+				value="shops"
+				on:change={() => filterMap('shops')}
+			/>
+			<label for="shops" class="btn btn-primary {currentFilter === 'shops' ? '' : 'btn-outline'}"
+				>Shops</label
+			>
+		</div>
 	</header>
 
 	<!-- MAP -->
-	<div class="h-screen w-screen" use:Map></div>
+	<div class="w-screen h-screen" use:Map></div>
 </main>
-
